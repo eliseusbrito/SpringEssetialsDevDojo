@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="devdojo-springboot" target="1.6" />
+      <module name="devdojo-springboot" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
