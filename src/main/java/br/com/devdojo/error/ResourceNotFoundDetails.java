@@ -1,41 +1,13 @@
 package br.com.devdojo.error;
 
-public class ResourceNotFoundDetails {
-    private String title;
-    private int status;
-    private String detail;
-    private long timestamp;
-    private String developersMessage;
-
-    private ResourceNotFoundDetails() {
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public String getDetail() {
-        return detail;
-    }
-
-    public long getTimestamp() {
-        return timestamp;
-    }
-
-    public String getDevelopersMessage() {
-        return developersMessage;
-    }
+public class ResourceNotFoundDetails extends ErrorDetail{
 
     public static final class Builder {
         private String title;
         private int status;
         private String detail;
         private long timestamp;
-        private String developersMessage;
+        private String developerMessage;
 
         private Builder() {
         }
@@ -64,18 +36,18 @@ public class ResourceNotFoundDetails {
             return this;
         }
 
-        public Builder developerMessage(String developersMessage) {
-            this.developersMessage = developersMessage;
+        public Builder developerMessage(String developerMessage) {
+            this.developerMessage = developerMessage;
             return this;
         }
 
         public ResourceNotFoundDetails build() {
             ResourceNotFoundDetails resourceNotFoundDetails = new ResourceNotFoundDetails();
-            resourceNotFoundDetails.detail = this.detail;
-            resourceNotFoundDetails.developersMessage = this.developersMessage;
-            resourceNotFoundDetails.title = this.title;
-            resourceNotFoundDetails.status = this.status;
-            resourceNotFoundDetails.timestamp = this.timestamp;
+            resourceNotFoundDetails.setDeveloperMessage(developerMessage);
+            resourceNotFoundDetails.setTitle(title);
+            resourceNotFoundDetails.setDetail(detail);
+            resourceNotFoundDetails.setTimestamp(timestamp);
+            resourceNotFoundDetails.setStatus(status);
             return resourceNotFoundDetails;
         }
     }
