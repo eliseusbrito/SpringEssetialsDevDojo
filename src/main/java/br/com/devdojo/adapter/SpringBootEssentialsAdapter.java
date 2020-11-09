@@ -6,7 +6,6 @@ import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import java.awt.print.Pageable;
 import java.util.List;
 
 @Configuration
