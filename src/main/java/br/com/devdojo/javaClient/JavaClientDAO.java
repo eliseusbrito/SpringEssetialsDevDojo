@@ -17,24 +17,33 @@ public class JavaClientDAO {
             .rootUri("http://localhost:8080/v1/admin/students")
             .basicAuthorization("toyo", "devdojo").build();
 
-    public Student findById(long id){
+    public Student findById(long id) {
         return restTemplate.getForObject("/{id}", Student.class, id);
 //        ResponseEntity<Student> forEntity = restTemplate.getForEntity("/{id}", Student.class, 1);
     }
-    public List<Student> listAll(){
+
+    public List<Student> listAll() {
         ResponseEntity<PageableResponse<Student>> exchange = restTemplate.exchange("/", HttpMethod.GET, null,
                 new ParameterizedTypeReference<PageableResponse<Student>>() {
                 });
         return exchange.getBody().getContent();
     }
 
-    public Student save(Student student){
+    public Student save(Student student) {
         ResponseEntity<Student> exchangePost = restTemplateAdmin.exchange("/",
                 HttpMethod.POST, new HttpEntity<>(student, createJSONHeader()), Student.class);
         return exchangePost.getBody();
     }
 
-    private static HttpHeaders createJSONHeader(){
+    public void update(Student student) {
+        restTemplateAdmin.put("/", student);
+    }
+
+    public void delete(long id) {
+        restTemplateAdmin.delete("/{id}", id);
+    }
+
+    private static HttpHeaders createJSONHeader() {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         return headers;
