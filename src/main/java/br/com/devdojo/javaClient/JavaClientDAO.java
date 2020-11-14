@@ -1,5 +1,6 @@
 package br.com.devdojo.javaClient;
 
+import br.com.devdojo.handler.RestResponseExceptionHandler;
 import br.com.devdojo.model.PageableResponse;
 import br.com.devdojo.model.Student;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -12,10 +13,14 @@ import java.util.List;
 public class JavaClientDAO {
     private RestTemplate restTemplate = new RestTemplateBuilder()
             .rootUri("http://localhost:8080/v1/protected/students")
-            .basicAuthorization("oda", "devdojo").build();
+            .basicAuthorization("oda", "devdojo")
+            .errorHandler(new RestResponseExceptionHandler())
+            .build();
     private RestTemplate restTemplateAdmin = new RestTemplateBuilder()
             .rootUri("http://localhost:8080/v1/admin/students")
-            .basicAuthorization("toyo", "devdojo").build();
+            .basicAuthorization("toyo", "devdojo")
+            .errorHandler(new RestResponseExceptionHandler())
+            .build();
 
     public Student findById(long id) {
         return restTemplate.getForObject("/{id}", Student.class, id);
