@@ -1,0 +1,835 @@
+{
+	"info": {
+		"_postman_id": "17f3aef4-af63-4e16-9bb3-269fd3ddf6fc",
+		"name": "DevDojoSpringEssentials",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Antes de ter BD",
+			"item": [
+				{
+					"name": "Post Student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"3\",\r\n    \"name\":\"Katsuki\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/students",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Student",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"4\",\r\n    \"name\": \"Katsuki2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/students",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Student Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"3\",\r\n    \"name\":\"Katsuki333333333333\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/students",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Com banco de Dados",
+			"item": [
+				{
+					"name": "Get Students",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "devdojo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/students",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Students Password em BD até aula 19",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "devdojo",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "oda",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/students",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Students Password em BD e version",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "oda",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "devdojo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/protected/students",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"protected",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Students By Id",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "toyo",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "devdojo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/protected/students/9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"protected",
+								"students",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Students findByName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/students/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"students",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Students Paginado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/students?page=0",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"students"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Students Paginado Definido numero paginas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/students?page=1&size=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"students"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Students Sorted Asc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/students?sort=name,asc",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"students"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "name,asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Students Sorted Desc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/students?sort=name,desc",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"students"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "name,desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Student",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "toyo",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "devdojo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"16\",\r\n    \"name\": \"Jonh Wick\",\r\n    \"email\": \"jonh@pencil.com\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/admin/students/16",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"admin",
+								"students",
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Student",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "toyo",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "devdojo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"3\",\r\n    \"name\":\"Katsuki333333333333\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/admin/students",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"admin",
+								"students"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Login com  JWT token",
+			"item": [
+				{
+					"name": "login JWTToken Protected Role User oda",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":\"oda\",\"password\":\"devdojo\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login JWTToken Admin Role Admin  toyo",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":\"toyo\",\"password\":\"devdojo\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Todos Token User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvZGEiLCJleHAiOjE2MDY2NTI5Mzd9.WpYoQmWetlz2XQ8KAYkZxlPJPRsthzOP8JxS2sANp6c4h9wD8_I-R-6CxoHzPXPvsOCCjUdFK3kUD-Wv34xMtA"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/v1/protected/students/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"protected",
+								"students",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Todos Token Admin",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b3lvIiwiZXhwIjoxNjA2NjUyOTk0fQ.jRZRVIDHs7PAeVhXu7Vaq89kt0RuMjJ6Q1B_CwiBYx-dsbINcbGdeYI7pv5oT-r2Q6xdZRvprQO0_hXt9hmiWw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/v1/protected/students/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"protected",
+								"students",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get ById Token User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvZGEiLCJleHAiOjE2MDY2NTI5Mzd9.WpYoQmWetlz2XQ8KAYkZxlPJPRsthzOP8JxS2sANp6c4h9wD8_I-R-6CxoHzPXPvsOCCjUdFK3kUD-Wv34xMtA"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/v1/protected/students/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"protected",
+								"students",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get ByName Token User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvZGEiLCJleHAiOjE2MDY2NTI5Mzd9.WpYoQmWetlz2XQ8KAYkZxlPJPRsthzOP8JxS2sANp6c4h9wD8_I-R-6CxoHzPXPvsOCCjUdFK3kUD-Wv34xMtA"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/v1/protected/students/findByName/lucas",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"protected",
+								"students",
+								"findByName",
+								"lucas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvZGEiLCJleHAiOjE2MDY2NTI5Mzd9.WpYoQmWetlz2XQ8KAYkZxlPJPRsthzOP8JxS2sANp6c4h9wD8_I-R-6CxoHzPXPvsOCCjUdFK3kUD-Wv34xMtA ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"JWT\",\r\n    \"email\": \"jwt@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/admin/students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"admin",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b3lvIiwiZXhwIjoxNjA2NjUyOTk0fQ.jRZRVIDHs7PAeVhXu7Vaq89kt0RuMjJ6Q1B_CwiBYx-dsbINcbGdeYI7pv5oT-r2Q6xdZRvprQO0_hXt9hmiWw ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"JWT\",\r\n    \"email\": \"jwt@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Del Token User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvZGEiLCJleHAiOjE2MDY2NTI5Mzd9.WpYoQmWetlz2XQ8KAYkZxlPJPRsthzOP8JxS2sANp6c4h9wD8_I-R-6CxoHzPXPvsOCCjUdFK3kUD-Wv34xMtA ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/v1/admin/students/27",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"admin",
+								"students",
+								"27"
+							]
+						},
+						"description": "Deve retornar um erro, pois user não pode deletar"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Token Admin",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b3lvIiwiZXhwIjoxNjA2NjUyOTk0fQ.jRZRVIDHs7PAeVhXu7Vaq89kt0RuMjJ6Q1B_CwiBYx-dsbINcbGdeYI7pv5oT-r2Q6xdZRvprQO0_hXt9hmiWw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/v1/admin/students/15",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"admin",
+								"students",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Token User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvZGEiLCJleHAiOjE2MDY2NTI5Mzd9.WpYoQmWetlz2XQ8KAYkZxlPJPRsthzOP8JxS2sANp6c4h9wD8_I-R-6CxoHzPXPvsOCCjUdFK3kUD-Wv34xMtA ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"13\",\r\n    \"name\":\"putComToken\",\r\n    \"email\":\"putComToken@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/admin/students/13",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"admin",
+								"students",
+								"13"
+							]
+						},
+						"description": "Deve retornar um erro, pois user não pode deletar"
+					},
+					"response": []
+				},
+				{
+					"name": "Put Token Admin",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b3lvIiwiZXhwIjoxNjA2NjUyOTk0fQ.jRZRVIDHs7PAeVhXu7Vaq89kt0RuMjJ6Q1B_CwiBYx-dsbINcbGdeYI7pv5oT-r2Q6xdZRvprQO0_hXt9hmiWw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"13\",\r\n    \"name\":\"putComToken\",\r\n    \"email\":\"putComToken@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/admin/students",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"admin",
+								"students"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
